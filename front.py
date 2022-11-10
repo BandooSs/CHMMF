@@ -64,28 +64,28 @@ lbl_arrayI.grid(row=0, column=0, pady=10)
 
 ent_arrayI = Entry(window1)
 ent_arrayI.grid(row=0, column=1)
-ent_arrayI.insert(0, '5, 20, 80, 320')
+ent_arrayI.insert(0, '20, 40, 80, 160')
 
 lbl_arrayK = Label(window1, text="Массив значений k :")
 lbl_arrayK.grid(row=1, column=0, pady=10)
 
 ent_arrayK = Entry(window1)
 ent_arrayK.grid(row=1, column=1)
-ent_arrayK.insert(0, '300, 1200, 4800, 19200')
+ent_arrayK.insert(0, '1200, 2400, 4800, 9600')
 
 lbl_valI = Label(window1, text="Коэффициент x(x*pi*R) :")
 lbl_valI.grid(row=3, column=0, pady=10)
 
 ent_valI = Entry(window1)
 ent_valI.grid(row=3, column=1)
-ent_valI.insert(0, '0.25')
+ent_valI.insert(0, '0.5')
 
 lbl_valK = Label(window1, text="Значение t :")
 lbl_valK.grid(row=4, column=0, pady=10)
 
 ent_valK = Entry(window1)
 ent_valK.grid(row=4, column=1)
-ent_valK.insert(0, '70')
+ent_valK.insert(0, '180')
 
 lbl_option = Label(window1, text="Выбор опций :")
 lbl_option.grid(row=0, column=2, pady=10, padx=20)

@@ -7,7 +7,7 @@ from numerical import get_numerical
 const_k = 0.59
 c = 1.65
 R = 5
-T = 200
+T = 180
 s = 0.04
 L = 2 * math.pi * R
 eps = 0.0001
@@ -33,19 +33,14 @@ def dynamic(el, ky):
 
     x_array = np.linspace(-math.pi * R, math.pi * R, I_array)
     t_array = np.linspace(0, T, K_array)
-
-    x1, t1 = get_numerical(const_k, c, R, 0, -math.pi * R / 4, x_array, t_array, el, ky)
-    x2, t2 = get_numerical(const_k, c, R, 30, math.pi * R / 2, x_array, t_array, el, ky)
-    x3, t3 = get_numerical(const_k, c, R, 70, -math.pi * R, x_array, t_array, el, ky)
-    x4, t4 = get_numerical(const_k, c, R, 199, 0, x_array, t_array, el, ky)
-    ax3.plot(x_array, np.abs(x1), linestyle='-', label='t=0')
-    ax4.plot(t_array, np.abs(t1), linestyle='-', label='x=pi*R/4')
-    ax3.plot(x_array, np.abs(x2), linestyle='-', label='t=30')
-    ax4.plot(t_array, np.abs(t2), linestyle='-', label='x=pi*R/2')
-    ax3.plot(x_array, np.abs(x3), linestyle='-', label='t=70')
-    ax4.plot(t_array, np.abs(t3), linestyle='-', label='x=-pi*R')
-    ax3.plot(x_array, np.abs(x4), linestyle='-', label='t=150')
-    ax4.plot(t_array, np.abs(t4), linestyle='-', label='x=0')
+    t = np.arange(0, T + T / 5, T / 5)
+    a = [4, 2, 1, -2, -4, -1]
+    for i, j in zip(t, a):
+        x, t = get_numerical(const_k, c, R, i, -math.pi * R / j, x_array, t_array, el, ky)
+        ax3.plot(x_array, np.abs(x), linestyle='-', label=f't={i}')
+        ax4.plot(t_array, np.abs(t), linestyle='-', label=f'x=pi*R/{j}')
+        print(i, " ", j)
+    print(t)
 
     ax3.legend()
     ax4.legend()
