@@ -24,6 +24,7 @@ def U(x, t, b, k, c, R):
     a = math.sqrt(k / c)
     for i in range(1, b + 1):
         u += An(i) * np.cos(i * x / R) * np.exp(-pow(i * a / R, 2) * t)
+
     return u
 
 
